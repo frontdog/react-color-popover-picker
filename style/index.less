@@ -1,0 +1,58 @@
+@tooltip-prefix-cls: ~'rc-tooltip';
+@cpp-trigger-height: 28px;
+@cpp-trigger-border-color: #ddd;
+@cpp-trigger-border-radius: 2px;
+@cpp-primary-color: #1890ff;
+@size: 10px;
+@color: #e9e9e9;
+
+.m-color-popover-picker {
+  &-trigger {
+    position: relative;
+    height: @cpp-trigger-height;
+    border: 1px solid @cpp-trigger-border-color;
+    border-radius: @cpp-trigger-border-radius;
+    transition: border-color .3s ease;
+    cursor: pointer;
+
+    &-inner {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      border: 1px solid #eee;
+    }
+
+    &-transparent {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      background-color: #fff;
+      border: 1px solid #eee;
+      background-image: linear-gradient(45deg, @color 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, @color 75%),
+        linear-gradient(45deg, @color 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, @color 75%);
+      background-position: 0 0, @size / 2 @size / 2, @size / 2 @size / 2, @size @size;
+      background-size: @size @size;
+    }
+
+    &:hover {
+      border-color: @cpp-primary-color;
+    }
+  }
+
+  &-overlay {
+    display: inline-block;
+    z-index: 999;
+  }
+}
+
+.@{tooltip-prefix-cls} {
+  &-hidden {
+    display: none;
+  }
+}
